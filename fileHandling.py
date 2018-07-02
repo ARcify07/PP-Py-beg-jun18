@@ -12,7 +12,7 @@ file.write(mystory)
 print(file.read())
 
 for line in file.read():
-	print(line, end='')
+    print(line, end='')
 
 print(file.closed)
 
@@ -21,3 +21,10 @@ print(file.closed)
 with open('filename', 'mode'):
     pass
 
+with open('simpleText.txt', 'r+') as f:
+    print(f.write('This is file handling in python'))
+    print(f.tell())
+    f.seek(f.tell() + 10)
+    print(f.read())
+
+print(f.closed)
