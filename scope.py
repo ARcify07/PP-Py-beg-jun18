@@ -57,7 +57,7 @@ def foo():
 foo()
 print(x)
 
-*********************************
+#*********************************
 ## usecase of non local
 
 def foo():
@@ -70,7 +70,7 @@ def foo():
     print(x)
 foo()
 
-***********************************
+#***********************************
 ## use case of global
 age = 10
 def f():
@@ -80,7 +80,7 @@ def f():
      print(age)
      g()
 
-***********************************
+#***********************************
 age = 10
 def t():
     age = 15
@@ -93,3 +93,19 @@ def t():
      print(age)
     h()
     j()
+
+#************************************
+x =10
+def f():
+	x = 12
+	def g():
+		x = 13
+		print(id(x) , x ,'x of g')
+		def h():
+			global x
+			#x+=2
+			print(id(x), x, 'x of h after change')
+		h()
+		print(id(x),x, 'x of g after change')
+	g()
+f()
